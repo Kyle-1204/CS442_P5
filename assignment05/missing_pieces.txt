@@ -1,0 +1,49 @@
+getLocation()
+clientSocket.
+outData.
+"GumballMachine State is " + 
+System.out.println();
+nextLine()
+getCount()
+(State)inObj.readObject()
+new InputStreamReader()
+getInputStream()
+new PrintWriter(, true);
+getInputStream()
+clientSocket.
+reportSocket.
+gumballMachine.
+clientSocket.
+gumballMachine.
+"GumballMachine Location is " +
+outObj.
+new BufferedReader();
+portNumber
+getOutputStream()
+writeInt();
+new ObjectOutputStream();
+new ServerSocket();
+reportSocket.
+reportSocket.
+System.out.println();
+accept();
+inData.
+new DataInputStream();
+new BufferedReader();
+"GumballMachine Count is " + 
+outText.println();
+new DataOutputStream();
+serverSocket.
+System.out.println();
+getOutputStream()
+inScan.
+new InputStreamReader()
+clientSocket.
+getOutputStream()
+writeObject();
+getState()
+getInputStream()
+getOutputStream()
+new PrintWriter(, true);
+readInt()
+gumballMachine.
