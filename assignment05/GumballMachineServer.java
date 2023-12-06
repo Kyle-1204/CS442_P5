@@ -23,8 +23,8 @@ public class GumballMachineServer {
 			System.out.println("\nOpening socket and waiting");
 			int countforGumballActions = 0;
 			try (
-					var serverSocket = new serverSocket(portNumber);
-					var clientSocket = severSocket.accept();
+					ServerSocket serverSocket = new ServerSocket(portNumber);
+					Socket clientSocket = serverSocket.accept();
 					var outData = new DataOutputStream(clientSocket.getOutputStream());
 					//wrap the client socket output stream as a DataOutputStream
 					// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/DataOutputStream.html
@@ -34,7 +34,7 @@ public class GumballMachineServer {
 					var outObj = new DataOutputStream(clientSocket.getOutputStream());
 					//wrap the client socket output stream as an ObjectOutputStream
 					// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/ObjectOutputStream.html
-					var in = new BufferedReader(clientSocket.getInputStream());
+					BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 					//wrap the client socket input stream as a BufferedReader, wrapping an InputStreamReader
 					//https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/BufferedReader.html
 					// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/InputStreamReader.html
