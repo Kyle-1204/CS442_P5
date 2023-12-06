@@ -23,15 +23,19 @@ public class GumballMachineServer {
 			System.out.println("\nOpening socket and waiting");
 			int countforGumballActions = 0;
 			try (
-					var serverSocket = create a server socket
-					var clientSocket = accept a request
-					var outData = wrap the client socket output stream as a DataOutputStream
+					var serverSocket = new serverSocket(portNumber);
+					var clientSocket = severSocket.accept();
+					var outData = new DataOutputStream(clientSocket.getOutputStream());
+					//wrap the client socket output stream as a DataOutputStream
 					// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/DataOutputStream.html
-					var outText = wrap the client socket output stream as a PrintWriter with autoFlush set to true
+					var outText = new PrintWriter(clientSocket.getOutputStream(), true );
+					//wrap the client socket output stream as a PrintWriter with autoFlush set to true
 					// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/PrintWriter.html
-					var outObj = wrap the client socket output stream as an ObjectOutputStream
+					var outObj = new DataOutputStream(clientSocket.getOutputStream());
+					//wrap the client socket output stream as an ObjectOutputStream
 					// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/ObjectOutputStream.html
-					var in = wrap the client socket input stream as a BufferedReader, wrapping an InputStreamReader
+					var in = new BufferedReader(clientSocket.getInputStream());
+					//wrap the client socket input stream as a BufferedReader, wrapping an InputStreamReader
 					//https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/BufferedReader.html
 					// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/InputStreamReader.html
 			) {	
@@ -40,10 +44,13 @@ public class GumballMachineServer {
 					System.out.println("Received " + inputLine);
 					if(inputLine.toLowerCase().equals("getlocation")) {
 						// send gumballMachine location (text)
+					
 					} else if(inputLine.toLowerCase().equals("getcount")) {
 						// send gumballMachine count (int data)
+						
 					} else if(inputLine.toLowerCase().equals("getstate")) {
 						// send gumballMachine state object (serialized object)
+						
 					} else {
 						outText.println("Invalid Request");
 					}

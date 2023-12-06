@@ -20,16 +20,21 @@ public class GumballMonitorClient {
 		String location = args[0];
 		try (
 				var reportSocket = new Socket(location, portNumber);
-				var out = wrap the report socket output stream as a PrintWriter with autoFlush set to true
+				var out = new PrintWriter(reportSocket.getOutputStream(), true );
+				//wrap the report socket output stream as a PrintWriter with autoFlush set to true
 				// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/PrintWriter.html
-				var inData = wrap the report socket input stream as a DataInputStream
+				var inData = new DataInputStream(reportSocket.getInputStream());
+				//wrap the report socket input stream as a DataInputStream
 				// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/DataInputStream.html
-				var inScan = wrap the report socket input stream as a Scanner
+				var inScan = new Scanner(reportSocket.getInputStream());
+				//wrap the report socket input stream as a Scanner
 				// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Scanner.html
-				var inStr = wrap the report socket input stream as a BufferedReader, wrapping an InputStreamReader
+				var inStr = new BufferedReader(reportSocket.getInputStream());
+				// wrap the report socket input stream as a BufferedReader, wrapping an InputStreamReader
 				//https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/BufferedReader.html
 				// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/InputStreamReader.html
-				var inObj = wrap the report socket input stream as an ObjectInputStream
+				var inObj = new ObjectInputStream(reportSocket.getInputStream());
+				//wrap the report socket input stream as an ObjectInputStream
 				// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/ObjectInputStream.html
 				var stdIn = new Scanner(System.in);
 		) {
@@ -40,16 +45,19 @@ public class GumballMonitorClient {
 				switch(userInput.toLowerCase()) {
 				case "location":
 					out.println("getLocation");
-					Print to the console "GumballMachine Location is " followed by the location sent by the server
+					//Print to the console "GumballMachine Location is " followed by the location sent by the server
+					System.out.println("GumballMachine State is " + getLocation());
 					break;
 				case "count":
 					out.println("getCount");
-					Print to the console "GumballMachine Count is " followed by the count sent by the server
+					//Print to the console "GumballMachine Count is " followed by the count sent by the server
+					System.out.println("GumballMachine State is " + getLocation());
 					break;
 				case "state":
 					out.println("getState");
-					Print to the console "GumballMachine State is " followed by the state object sent by the server
-					NOTE, the toString of state will be called automatically when following a String
+					//Print to the console "GumballMachine State is " followed by the state object sent by the server
+					//NOTE, the toString of state will be called automatically when following a String
+					System.out.println("GumballMachine State is " + getLocation());
 					break;
 				case "report":
 					TODO:
