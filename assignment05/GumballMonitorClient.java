@@ -60,11 +60,12 @@ public class GumballMonitorClient {
 					System.out.println("GumballMachine State is " + out);
 					break;
 				case "report":
-					TODO:
-					use all the of the above to output a complete report as in the textbooks RMI version:
-						Gumball Machine: localhost
-						Current inventory: 44 gumballs
-						Current state: waiting for turn of crank
+					System.out.println("Gumball Machine:"+ );
+					// TODO:
+					// use all the of the above to output a complete report as in the textbooks RMI version:
+					// 	Gumball Machine: localhost
+					// 	Current inventory: 44 gumballs
+					// 	Current state: waiting for turn of crank
 				default:
 					System.out.println("Request \"location\", \"count\", or \"state\" ");
 				}

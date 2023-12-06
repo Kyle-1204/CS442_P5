@@ -44,12 +44,14 @@ public class GumballMachineServer {
 					System.out.println("Received " + inputLine);
 					if(inputLine.toLowerCase().equals("getlocation")) {
 						// send gumballMachine location (text)
-					
+						outText.println(gumballMachine.getLocation());
 					} else if(inputLine.toLowerCase().equals("getcount")) {
 						// send gumballMachine count (int data)
+						outText.println(gumballMachine.getCount());
 						
 					} else if(inputLine.toLowerCase().equals("getstate")) {
 						// send gumballMachine state object (serialized object)
+						outText.println(gumballMachine.getState());
 						
 					} else {
 						outText.println("Invalid Request");
