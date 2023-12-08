@@ -60,12 +60,23 @@ public class GumballMonitorClient {
 					System.out.println("GumballMachine State is " + out);
 					break;
 				case "report":
-					System.out.println("Gumball Machine:"+ );
 					// TODO:
 					// use all the of the above to output a complete report as in the textbooks RMI version:
 					// 	Gumball Machine: localhost
 					// 	Current inventory: 44 gumballs
 					// 	Current state: waiting for turn of crank
+					// Request location, count, and state from the server
+					out.println("getLocation");
+					String locationReport = inStr.readLine(); // Read location response
+					out.println("getCount");
+					String countReport = inStr.readLine(); // Read count response
+					out.println("getState");
+					Object stateReport = inObj.readObject(); // Read state object
+					    // Display the complete report
+					System.out.println("Gumball Machine: " + locationReport);
+					System.out.println("Current inventory: " + countReport + " gumballs");
+					System.out.println("Current state: " + stateReport.toString());
+					break;
 				default:
 					System.out.println("Request \"location\", \"count\", or \"state\" ");
 				}
