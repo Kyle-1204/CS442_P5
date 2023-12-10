@@ -29,7 +29,7 @@ public class GumballMonitorClient {
 				var inScan = new Scanner(reportSocket.getInputStream());
 				//wrap the report socket input stream as a Scanner
 				// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/Scanner.html
-				var inStr = new BufferedReader(reportSocket.getInputStream());
+				var inStr = new BufferedReader(new InputStreamReader(reportSocket.getInputStream())); //This didn't compile previously without new InputStreamReader
 				// wrap the report socket input stream as a BufferedReader, wrapping an InputStreamReader
 				//https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/BufferedReader.html
 				// https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/InputStreamReader.html
