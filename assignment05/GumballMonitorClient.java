@@ -67,10 +67,7 @@ public class GumballMonitorClient {
                 System.out.println("Make Request");
             }
         } 
-		catch (ClassNotFoundException e) {
-			System.err.println("Serialization problem");
-			System.exit(1);
-		}
+	
 		catch (UnknownHostException e) {
             System.err.println("Don't know about host " + location);
             System.exit(1);
