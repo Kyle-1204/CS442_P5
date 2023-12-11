@@ -19,6 +19,12 @@ public class GumballMachineServer {
 		int portNumber = Integer.parseInt(args[1]); 
 		int count = Integer.parseInt(args[2]);
 		var gumballMachine = new GumballMachine(args[0], count);
+		try(ServerSocket soc = new ServerSocket(portNumber)) {
+			soc.close();
+	  	} catch(IOException e) {
+			System.out.println("That port is in use");
+			System.exit(0);
+	  	}
 		while(true) {
 			System.out.println("\nOpening socket and waiting");
 			int countforGumballActions = 0;

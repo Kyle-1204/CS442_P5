@@ -46,18 +46,21 @@ public class GumballMonitorClient {
 				case "location":
 					out.println("getLocation");
 					//Print to the console "GumballMachine Location is " followed by the location sent by the server
-					System.out.println("GumballMachine State is " + out);
+					String locationResponse = inStr.readLine();
+            		System.out.println("GumballMachine Location is " + locationResponse);
 					break;
 				case "count":
 					out.println("getCount");
 					//Print to the console "GumballMachine Count is " followed by the count sent by the server
-					System.out.println("GumballMachine State is " + out);
+					String countResponse = inStr.readLine();
+            		System.out.println("GumballMachine Count is " + countResponse);
 					break;
 				case "state":
 					out.println("getState");
 					//Print to the console "GumballMachine State is " followed by the state object sent by the server
 					//NOTE, the toString of state will be called automatically when following a String
-					System.out.println("GumballMachine State is " + out);
+					Object stateResponse = inObj.readObject();
+            		System.out.println("GumballMachine State is " + stateResponse);
 					break;
 				case "report":
 					// TODO:
