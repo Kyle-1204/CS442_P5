@@ -71,7 +71,7 @@ public class GumballMonitorClient {
 					    // Display the complete report
 					System.out.println("Gumball Machine: " + locationResponse);
 					System.out.println("Current inventory: " + countResponse + " gumballs");
-					System.out.println("Current state: " + stateResponse);;
+					System.out.println("Current state: " + stateResponse);
 					break;
 				default:
 					System.out.println("Request \"location\", \"count\", or \"state\" ");
