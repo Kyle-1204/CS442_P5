@@ -29,19 +29,22 @@ public class GumballMonitorClient {
 		) {
 			System.out.println("Make Status Request");	
 			String userInput;
+			String countResponse;
+			String locationResponse;
+			String stateResponse;
 			while(stdIn.hasNextLine()) {
 				userInput = stdIn.nextLine();
 				switch(userInput.toLowerCase()) {
 				case "location":
 					out.println("getLocation");
 					//Print to the console "GumballMachine Location is " followed by the location sent by the server
-					String locationResponse = inStr.readLine();
+					locationResponse = inStr.readLine();
             		System.out.println("GumballMachine Location is " + locationResponse);
 					break;
 				case "count":
 					out.println("getCount");
 					//Print to the console "GumballMachine Count is " followed by the count sent by the server
-					String countResponse = inStr.readLine();
+					countResponse = inStr.readLine();
             		System.out.println("GumballMachine Count is " + countResponse);
 					break;
 				case "state":
@@ -49,6 +52,7 @@ public class GumballMonitorClient {
 					//Print to the console "GumballMachine State is " followed by the state object sent by the server
 					//NOTE, the toString of state will be called automatically when following a String
 					// Object stateResponse = inObj.readObject();
+					stateResponse = inStr.readLine();
             		System.out.println("GumballMachine State is " + inStr.readLine());
 					break;
 				case "report":
@@ -58,16 +62,16 @@ public class GumballMonitorClient {
 					// 	Current inventory: 44 gumballs
 					// 	Current state: waiting for turn of crank
 					// Request location, count, and state from the server
-					out.println("getLocation");
-					String locationReport = inStr.readLine(); // Read location response
-					out.println("getCount");
-					String countReport = inStr.readLine(); // Read count response
-					out.println("getState");
-					Object stateReport = inObj.readObject(); // Read state object
+					//out.println("getLocation");
+					//String locationReport = inStr.readLine(); // Read location response
+					//out.println("getCount");
+					//String countReport = inStr.readLine(); // Read count response
+					//out.println("getState");
+					//Object stateReport = inObj.readObject(); // Read state object
 					    // Display the complete report
-					System.out.println("Gumball Machine: " + locationReport);
-					System.out.println("Current inventory: " + countReport + " gumballs");
-					System.out.println("Current state: " + stateReport.toString());
+					System.out.println("Gumball Machine: " + locationResponse);
+					System.out.println("Current inventory: " + countResponse + " gumballs");
+					System.out.println("Current state: " + stateResponse);;
 					break;
 				default:
 					System.out.println("Request \"location\", \"count\", or \"state\" ");
